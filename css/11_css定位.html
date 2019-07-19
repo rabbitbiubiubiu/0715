@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            /* body 自带margin = 8 */
+            margin: 0;
+        }
+        #div0{
+            width: 500px;
+            height: 500px;
+            background: gray;
+            margin: 200px;
+        }
+        #div1{
+            width: 150px;
+            height: 100px;
+            background: red;
+            float: left;
+        }
+        #div2{
+            width: 150px;
+            height: 100px;
+            background: green;
+            float: left;
+            /* 
+            relative 相对定位 
+            1 相对于自己初始位置
+            2 定位后，空间不释放
+
+            absolute 绝对定位
+            1 相对于最近已定位的祖先元素 如果没有最近已定位的祖先元素，相对于body
+            2 定位以后，空间释放
+
+            fixed 固定定位
+            1 相当于浏览器可视区
+            2 定位后空间释放
+
+            static 静态的 默认值
+
+            sticky 粘性定位 吸顶效果
+
+            定位后，宽度是内容撑的
+            */
+            /* position: relative;
+            left: 100px;
+            top: 80px; */
+
+            /* position: absolute;
+            left: 50px;
+            top: 30px;
+            right: 0px;
+            bottom: 0px; */
+
+        }
+        #div3{
+            width: 150px;
+            height: 100px;
+            background: blue;
+            float: left;
+        }
+        #div4{
+            position: fixed;
+            left: 50px;
+            top: 50px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div id="div0">
+        <div id="div1"></div>
+        <div id="div2"></div>
+        <div id="div3"></div>
+        <div id="div4">
+            4444444444
+
+        </div>
+    </div>
+</body>
+</html>

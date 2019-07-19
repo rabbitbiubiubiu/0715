@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font:12px/1.5 tahoma,arial,"\5b8b\4f53";
+    /* 字体抗锯齿渲染 */
+    -webkit-font-smoothing: antialiased;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+/* 公共的样式用于居中 */
+.wrapper{
+    width: 1230px;
+    margin: 0 auto;
+}
+.arrow{
+    height: 0;
+    width: 0;
+    border: 3px solid transparent;
+    border-top: 6px solid #bbbbbb;
+    font-size: 0;
+    line-height: 0;
+    position: absolute;
+    right: 8px;
+    top: 15px;
+    transform: transform 0.2s ease;
+}

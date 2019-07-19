@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+    </style>
+    <link rel="stylesheet" href="style.css">
+    <!-- 
+        id选择器 #div1 唯一的
+        类选择器 伪类选择器 .aa{}
+        标签(元素)选择器  li{}
+        伪元素选择器 ::after content 一定要写
+        hover
+        后代选择器 #ul li{} 优先级可计算
+        子代选择器 #ul > li 优先级可计算
+        相邻兄弟选择器 #ul1 + ul2{}
+        分组选择器 #ul,.aa{}
+
+        优先级
+        ！important  最高
+        内联 1000
+        id 100
+        class  伪类选择器 10
+        元素  伪元素选择器 1
+     -->
+</head>
+<body style="height: 2000px;">
+    <div id="div1">hahahahahaha</div>
+    <div id="div2"></div>
+    <ul>
+        <li>111</li>
+        <li>2222</li>
+    </ul>
+    <a href="#">aaaa</a>
+
+    <div id="div5">5555</div>
+
+    <!-- 浮动的元素会脱离文档流，空间会释放,
+        浮动的塌陷 
+        解决塌陷问题：
+        1 父元素设置高
+        2 父元素overflow:hidden 溢出隐藏
+        3 清浮动 clear:both 加在浮动下面
+          .clearfix::after{
+              content="";
+              display:block;
+              clear:both;
+          }
+    -->
+    <div id="div6" class="clearfix">
+        <div id="div7">1</div>
+        <div id="div8">2</div>
+    </div>
+    <h1></h1>
+</body>
+</html>

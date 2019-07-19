@@ -1,0 +1,113 @@
+<!-- 声明文档类型 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 移动端 浏览器适配 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 搜索关键字 -->
+    <meta name = "keyword" content="鲜花"/>
+    <mate name = "description" content = "balabala"/>
+    <!-- 标题 -->
+    <title>一个小页面</title>
+</head>
+<!-- 调整页面高度 -->
+<body style="height: 2000px;">
+    <h1>标题</h1>
+    <p>段落</p>
+    <h2>标题</h2>
+    <!-- 图片 相对路径，绝对路径 ..访问根目录-->
+    <img src="捕获.PNG" alt="一张小图片"title="一张大图片">
+    <!-- 超链接 target="_blank" 打开新窗口-->
+    <a href="http://www.baidu.com" target="_blank">百度</a>
+    <ul>
+        <!-- 无序列表 -->
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+    <ol>
+        <!-- 有序列表 -->
+        <li>444</li>
+        <li>555</li>
+        <li>666</li>
+    </ol>
+    <div>
+        <!-- 划分区块布局  div+css布局-->
+        哈哈哈哈
+    </div>
+
+    <!-- 
+        行级元素 多个元素占一行
+        块级元素 自己占一行
+    -->
+
+    <!-- 选中文字加样式 -->
+    <div>
+        1122222<span style="color: rgb(240, 15, 8)">3333</span>
+    </div>
+    <span>1111122222</span>
+    <!-- 块元素可添加到行元素，行元素不建议添加到块元素上 -->
+
+    <!-- 表单元素 -->
+    <!-- 表单 -->
+    <form action="">
+        <div>
+            <!-- id 唯一的标识 -->
+            <!-- label  获取焦点 -->
+            <label for="username">用户名：</label><input type="text" id="username">
+            <label for="password">密码：</label><input type="password" id="password">
+        </div>
+
+
+        <!-- 强制换行 -->
+        <br/>
+
+        <!-- 单选框 -->
+        <input type="radio" name="sex">男
+        <input type="radio" name="sex">女
+
+        <!-- 复选框 -->
+        <input type="checkbox" name="habby">羽毛球
+        <input type="checkbox" name="habby">足球
+        <input type="checkbox" name="habby">乒乓球
+
+        <!-- 下拉框 -->
+        <select>
+            <option value="">黑龙江大学</option>
+            <option value="">哈理工大学</option>
+            <option value="">林业大学</option>
+            <option value="">农业大学</option>
+        </select>
+
+        <!-- 文本域 可拉伸-->
+        <textarea cols="30" rows="10"></textarea>
+
+        <!-- 提交按钮 点击自动提交表单-->
+        <input type="submit">
+
+        <!-- 普通按钮 -->
+        <button>按钮</button>
+    </form>
+
+    <div>
+        <!-- i 斜体 strong 加粗 -->
+        急哦后就<i>开始</i>的<strong>话</strong>
+    </div>
+
+    <!-- 表格 border 边框 cellsspacing="0" 单元格间隙  cellpadding="10" 文字与表格边框的间距-->
+    <table border="1" cellspacing="0" cellpadding="10">
+        <tr>
+            <!-- 表头 -->
+            <th>姓名</th>
+            <th>电话</th>
+        </tr>
+        <tr>
+            <!-- 表体 一行两列 -->
+            <td>1111</td>
+            <td>2222</td>
+        </tr>
+    </table>
+</body>
+</html>

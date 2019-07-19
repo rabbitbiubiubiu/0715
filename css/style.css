@@ -1,0 +1,56 @@
+#div1{
+    width: 500px;
+    height: 500px;
+    background-color: red;
+    /* background-image: url(../html/捕获.PNG);
+    background-repeat:no-repeat;
+    background-position: 100px 100px;  */
+    /* 推荐合并写法 */
+    /* text-indent: 30px; */
+    text-align: left;
+    /* 单行文本垂直居中 */
+    line-height: 500px;
+    text-decoration: none;
+
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: italic;
+}
+
+ul{
+    list-style: none;
+}
+
+li{
+    cursor: pointer;
+}
+
+#div5{
+    width: 200px;
+    height: 200px;
+    background: #0f0;
+    padding: 20px 30px 40px 50px;
+    border: 5px solid black;
+    margin: 50px;
+
+    box-sizing: border-box
+}
+
+#div6{
+    width: 500px;
+    background: #f00;
+}
+
+#div7,#div8{
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    background: #0f0;
+    float: left;
+}
+
+h1{
+    height: 50px;
+    background: #00f;
+}
