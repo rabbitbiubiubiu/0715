@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 随机生成两个小数给变量x.y，然后显示这两个数中的最大值。
+        // var x=Math.random();
+        // var y=Math.random();
+        // console.log(x);
+        // console.log(y);
+        // console.log(x<y?x:y);
+
+        //如果某年的年份值是4的倍数并且不是100的倍数，或者该年份值是400的倍数，
+        //那么这一年就是闰年。请编制一个页面，该页面显示当天是否处于闰年。
+        // var today = new Date();   //获取当天日期
+        // var year = today.getFullYear();   //获取当天年份 
+        // if((year%4==0)&&(year%100!=0)||year%400==0){
+        //     console.log("今天是"+today);
+        //     console.log("今年是闰年!");
+        // }
+        // else{
+        //     console.log("今年不是闰年!");
+        // }
+
+        //编写程序．通过用户输入的年龄判断是哪个年龄段的人
+        //（儿童：年龄＜14；青少年：14<=年龄＜24；青年：24<年龄＜40; 中年：40＜=年龄＜60; 老年：年龄>=60），
+        // 并在页面上输出判断结果
+        // var age = window.prompt("请输入年龄");
+        // if(age<14){
+        //     alert("儿童");
+        // }else if( 14 <= age <= 24){
+        //     alert("青少年");
+        // }else if(24 < age <40){
+        //     alert("青年");
+        // }else if(40<age<60){
+        //     alert("中年");
+        // }else if(age>=60){
+        //     alert("老年");
+        // }
+
+        // 2.	编写程序，艰据用户输入的一个数字(0~6)．
+        // 通过警示对话框显示对应的星期几(0: 星期日; 1: 星期一;……6: 星期六;)。
+        // var day = window.prompt("请输入星期：");
+        // day = day * 1;
+        // switch(day){
+        //     case 0:
+        //         alert("周日");
+        //         break;
+        //     case 1:
+        //         alert("周一");
+        //         break;
+        //     case 2:
+        //         alert("周二");
+        //         break;
+        //     case 3:
+        //         alert("周三");
+        //         break;
+        //     case 4:
+        //         alert("周四");
+        //         break;
+        //     case 5:
+        //         alert("周五");
+        //         break;
+        //     case 6:
+        //         alert("周六");
+        //         break;
+        //     default:
+        //         alert("输入有误");
+        //         break
+        // }
+
+        // 编写程序，计算10!(即 1*2*3＊•…10)的结果(10的阶乘)。
+        // var n = 1;
+        // for(var i = 1;i <= 10;i++){
+        //     n = n*i;
+        // }
+        // alert(n);
+
+        // 4.	编写程序，计算 1!+2!+3!+…..＋10！的结果。
+        // var sum = 0;
+        // var n = 1;
+        // for(var i = 1;i<=10;i++){
+        //     for (var j = 1;j<=i;j++){
+        //         console.log(i,j,n);
+        //         n = n * j;
+        //     }
+        //     sum = sum + n;
+        //     n = 1;
+        //     console.log(sum); 
+        // }
+        // alert(sum);
+
+        // 在页面上输出如下数字图案。
+        // for(var i=1;i<=5;i++){
+        //     for(var j = 1;j<=i;j++){
+        //         document.write(j);
+        //         if (j>0) document.write(" ");
+        //     }
+        //     document.write("<br>");
+        // }
+
+        // 6.	在页面上输出如下图案。
+    
+        // 其中，每行的星号"*"之间有一个空格间隔。
+        // var j = 1;
+        // for(var i=1;i<=5;i++){
+        //     for(var k=j;k<5;k++){
+        //         document.write("&nbsp;");
+        //     }
+        //     for(j = 1;j<=i;j++){
+        //         document.write("*");
+        //         if (j>0) document.write(" ");
+        //     }
+        //     document.write("<br>");
+        // }
+
+        //有一个三位数x，被4除余2，被7除余3，被9除余5，请求出这个数。
+        // for(var num = 100; num<1000;num++){
+        //     if(num%4==2 && num%7==3 && num % 9 == 5){
+        //         alert(num);
+        //     }
+        // }
+
+        //求所有满足条件的四位数ABCD，它是13的倍数，且第3位数加上第2位数等于第4位数（即：A=B+C）。
+        //（提示：对于四位数的整数x，通过Math.floor(x/1000)可求出第4位的数字，其他位数的提取也类似） 
+        // for(var num = 1000;num < 10000;num++){
+        //     var num4 = Math.floor(num/1000);
+        //     var num3 = Math.floor((num-num4*1000)/100);
+        //     var num2 = Math.floor((num-num4*1000-num3*100)/10);
+        //     if(num%13==0&&(num2+num3)==num4){
+        //         document.write(num);
+        //         document.write("&nbsp;");
+        //     }
+        // }
+
+        //编写一个函数 f(x) = 4x2+3x+2，使用户通过提示对话框瑜入x的值，能得到相应的计算结果。
+        // var x = window.prompt("请输入X");
+        // function f(x){
+        //     s = 4 * x * x +3 * x + 2;
+        //     alert(s);
+        // }
+        // f(x);
+
+        //编写一个函数Min(x,y)求出x,y这两个数中的最小值，要求x,y的值由用户通过提示对话框输入。
+        // var x = window.prompt("请输入X得值");
+        // var y = window.prompt("请输入Y得值");
+        // function min(x,y){
+        //     s = x<y?x:y;
+        //     alert(s);
+        // }
+        // min(x,y);
+
+        //编写一个判断某个非负整数是否能够同时被3,5,7整除的函数，
+        //然后在页面上输出1~1000之间所有能同时被3,5,7整除的整数，并要求每行显示6个这样的数。
+        // var i = 0;
+        // for (var j = 1;j<1000;j++){
+        //     if(j%3==0 && j%5==0 && j%7==0){
+        //         i=i+1;
+        //         document.write(j);
+        //         document.write("&nbsp;");
+        //         if(i%6 == 0){
+        //         document.write("<br>");
+        //         }
+        //     }
+        // }
+
+        //在页面上编程输出100~1000之间的所有素数，并要求每行显示6个素数。
+        // var k=0;
+        // for(var i=100;i<=1000;i++){
+        //     var a = 0;
+        //     for(var j=2;j<i;j++){
+        //         if(i%j==0){
+        //             a = a+1;
+        //         }
+        //     }
+        //     if(a == 0){
+        //         k = k+1;
+        //         document.write(i);
+        //         document.write("&nbsp;");
+        //         if(k%6==0)
+        //         {
+        //             document.write("<br>");
+        //         }
+        //     }
+        // }
+
+        //编写一个非递归函数factorial(n)，计算12!-10!的结果。
+        // function f(x){
+        //     var sum=1;
+        //      for(var i=1;i<=x;i++){
+        //          sum = sum * i;
+        //      }
+        //      return sum;
+        // }
+        // alert(f(12)-f(10));
+
+        //编写一个带一个参数（指定显示多少层星号“*”的函数，它在页面止输出的一个5层星号“*”图案类似。其中，每行的星号“*”之间有一个空格间隔。
+        // function f(n){
+        //     var j = 1;
+        //     for(var i=1;i<=n;i++){
+        //         for(var k=j;k<n;k++){
+        //             document.write("&nbsp;");
+        //         }
+        //         for(j = 1;j<=i;j++){
+        //             document.write("*");
+        //             if (j>0) document.write(" ");
+        //         }
+        //         document.write("<br>");
+        //     }
+        // }
+        // var n = window.prompt("请输入星星层数");
+        // f(n);
+        //斐波纳契（Fibonacci）数列的第一项是1，第二项是1，以后各项都是前两项的和。
+        // 试用递归函数和非递归函数各编写一个程序，求斐波纳契数列第N项的值。
+        // function f(x){
+        //     f = [1,1]
+        //     if(x == 1|| x==2) {return 1;}
+        //     else{
+        //         for(var i=3;i<x+1;i++){
+        //             f[i-1] = f[i-2] + f[i-3];
+        //         }
+        //         return f[x-1];
+        //     }
+        // }
+        // var n = window.prompt("请输入数列个数");
+        // alert(f(n));
+
+        // 8.	编写函数，用下面的公式计算π的近似值。在页面上输出当n=100，500，1000，10000时π的近似值。
+        // function f(x){
+        //     var a=-1, b = 1,m=0;
+        //     for(var i=1;i<=x;i++){
+        //         a *= -1;
+        //         b = 2*i-1;
+        //         c = a/b;
+        //         m = m +c;
+        //     }
+        //     return m*4;
+        // }
+        // document.write(f(100)+"<br>");
+        // document.write(f(500)+"<br>");
+        // document.write(f(1000)+"<br>");
+        // document.write(f(10000)+"<br>");
+
+        //利用全局变量和函数，设计模拟幸运数字机游戏。设卒运数字为8，每次由计算机随机产生3个1-9之间(包括1和9）的随机数，
+        //当这3个随机数中有一个数字为8时，就算赢了一次，要求利用函数计算获胜率。
+        num = Math.random()
+    </script>
+</body>
+</html>
