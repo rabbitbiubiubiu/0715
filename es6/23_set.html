@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //set 类似于数组，但成员不能重复
+        let x = new Set([1,2,2,3,4,3,4]);
+        console.log(x);
+        var arr = [1,2,3,4,6,3,7,4,5];
+
+        var y = new Set(arr);
+        y.add(10);
+        y.delete(3);
+        // y.clear();
+        console.log(y.size);
+        //类数组转化为数组
+        var arr2 = [...y];
+        var arr3 = Array.from(arr);
+        console.log(arr2);
+        console.log(arr3);
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 从数组和对象中提取值，对变量进行赋值，这被称为解构 -->
+    <script>
+        let arr = [1,2];
+        // var a = arr[0];
+        // var b = arr[1];
+        // console.log(a,b);
+        // let [a,b] = arr;
+        // console.log(a,b);
+
+        // let arr1 = [1,2,[3,4],5];
+        // let [a,b,[c,d],e=10] = arr1;
+        // console.log(a,b,c,d,e);
+
+        // function fn([x,y,z = 100]){
+        //     console.log(x,y,z);
+        // }
+        // fn([1,2,3]);
+
+        // let obj = {
+        //     name:'zs',
+        //     age:20,
+        //     x:'aaa',
+        //     y:'bbb'
+        // }
+        // let {x,y} = obj;
+        // let {name,age} = obj;
+        // console.log(x,y);
+        // console.log(name,age);
+
+        let a = 5;
+        let b = 6;
+        //a,b互换
+        // let m ;
+        // m = a;
+        // a = b;
+        // b = m;
+        // console.log(a,b)
+
+        // [a,b] = [b,a];
+        // console.log(a,b);
+
+        // a = a+b;
+        // b = a-b;
+        // a = a-b;
+        // console.log(a,b);
+
+        a = [b,b=a][0];
+        console.log(a,b);
+
+
+    </script>
+</body>
+</html>

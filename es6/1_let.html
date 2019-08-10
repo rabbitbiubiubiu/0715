@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        let 和 var 区别
+        1.let没有变量提升
+        2.let不能重复命名
+        3.块级作用域
+        4.临时失效区 （暂时性死区） 当前作用域不允许同名的变量进来
+
+     -->
+    <script>
+        
+        // console.log(a);
+        // var a = 10;
+
+        // console.log(b);
+        // let b = 10;
+
+        // var c = 10;
+        // var c = 20;
+        // console.log(c);
+
+        // let d = 10;
+        // let d = 20;
+        // console.log(d);
+
+        // var m = 5;
+        // if(m){
+        //     var n = 10;
+        // }
+        // console.log(n);
+
+        // var m = 5;
+        // if(m){
+        //     let n = 20;
+        // }
+        // console.log(n);
+
+        // var x = 10;
+        // function a(){
+        //     console.log(x);
+        //     var x = 20;
+        // }
+        // a();
+
+        var x = 10;
+        function a(){
+            console.log(x);
+            let x = 20;
+        }
+        a();
+
+
+    </script>
+</body>
+</html>
