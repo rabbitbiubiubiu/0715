@@ -248,7 +248,148 @@
 
         //利用全局变量和函数，设计模拟幸运数字机游戏。设卒运数字为8，每次由计算机随机产生3个1-9之间(包括1和9）的随机数，
         //当这3个随机数中有一个数字为8时，就算赢了一次，要求利用函数计算获胜率。
-        num = Math.random()
+        // var count = 0;
+        // var sum = 0;
+        // var num1,num2,num3;
+        // var flag;
+        // var rate;
+        // function fn(){
+        //     sum++;
+        //     num1 = Math.floor(Math.random()*9+1);
+        //     num2 = Math.floor(Math.random()*9+1);
+        //     num3 = Math.floor(Math.random()*9+1);
+        //     if(num1 == 8 || num2 == 8 || num3 == 8){
+        //         count++;
+        //         flag = "赢";
+        //     }
+        //     else{
+                
+        //         flag = "输";
+        //     }
+        //     rate = Math.floor((count/sum)*100);
+        // }
+        // do{
+        //     fn();
+        // }while(confirm(num1 + "\n" + num2 +"\n" + num3 + "\n" + flag + "\n" + rate))
+
+        // 1.	编写程序，根据用户输入的数值，计算其平方、平方根和自然对数。
+        // var x = prompt("请输入数据");
+        // a = Math.pow(x,2);
+        // b = Math.sqrt(x);
+        // c = Math.log(x);
+        // alert(a + "\n" + b +"\n" + c);
+
+        // 2.	使用Math对象的random()方法编制一个产生0~100之间（含0,100）的随机整数的函数。
+        // function fn(){
+        //     alert(Math.floor(Math.random()*101));
+        // }
+        // while(1){
+        //     fn();
+        // }
+
+
+        // 3.	设计一个页面，在页面上显示信息“现在是XXXX年XX月XX日Xx点XX分XX秒（星期X)，欢迎您的到访！“。
+        // var date = new Date;
+        // document.write("现在是"+date.getFullYear()+"年"+(date.getMonth()+1)+"月"+date.getDate()+"日"+date.getHours()+"时"+date.getMinutes()+"分"+date.getSeconds()+"秒"+"(星期"+date.getDay()+")"+",欢迎您的到访!")
+
+        // 4.	编制一个从字符串中收集数字字符（"0"',"1"，…"9"）的函数CollectDigits(s)，它从字符串s中顺序取出数字，并且合并为一个独立的字符串作为函数的返回值。例如函数调用CollectDigits("1abc23def4"）的返回值是字符串"1234"。
+        // function CollectDigits(s){
+        //     var arr = s.split("");
+        //     var str = "";
+        //     for(var i = 0;i<arr.length;i++){
+        //         if(!isNaN(arr[i])){
+        //             str = str + arr[i];
+        //         }
+        //     }
+        //     return str;
+        // }
+        // var s = prompt("请输入字符串");
+        // alert(CollectDigits(s));
+
+        // 5.	编制一个将两个字符串交叉合并的函数Merge(s1,s2)，例如Merge("123","abc"）的返回结果是"1a2b3c"，如果两个字符串的长度不同，那么就将多余部分直接合并到结果字符串的末尾，如Merge("123456",''abc''）的返回结果是”1a2b3c456”。
+        // function Merge(s1,s2){
+        //     var arr1 = s1.split("");
+        //     var arr2 = s2.split("");
+        //     var num = arr1.length < arr2.length ? arr1.length : arr2.length;
+        //     var arr = "";
+        //     var index = 0;
+        //     var ind = 0;
+        //     for( var i = 0;i<num;i++){
+        //         arr = arr + arr1[i];
+        //         arr = arr + arr2[i];
+        //         index = i;
+        //     }
+        //     if(arr1.length < arr2.length){
+        //         ind = arr2.length - num ;
+        //         arr = arr + s2.slice(ind);
+        //         return arr;
+        //     }
+        //     else if(arr1.length > arr2.length){
+        //         ind = arr1.length - num;
+        //         arr = arr + s1.slice(ind);
+        //         return arr;
+        //     }else{
+        //         return arr;
+        //     }
+        // }
+        // var s1 = prompt("请输入字符串1");
+        // var s2 = prompt("请输入字符串2");
+        // alert(Merge(s1,s2));
+
+        // 6.	设计一个程序，它（使用一个数组）接收用户输入的7门课程的成绩，然后在页面上显示其总成绩和平均分，并列出小于60的成绩。
+        // var arr = new Array;
+        // var sum = 0;
+        // var low = new Array;
+        // for( var i = 0;i < 7 ;i++){
+        //     arr.push(prompt("请输入第"+(i+1)+"门成绩"));
+        //     sum = sum + arr[i]*1;
+        //     if(arr[i]*1 < 60){
+        //         low.push(arr[i]);
+        //     }
+        // }
+        // alert("总分:"+sum+"\n"+"平均分:"+Math.round((sum/7))+"\n"+"60分以下:"+low)
+
+        // 7.	斐波纳契（Fibonacci）数列的第一项是1，第二项是1，以后各项都是前两项的和。请按逆序在页面中显示斐波纳契数列前40项的值（即，如果计算出来的数列是1,1,2,3,5,8…，那么显示的顺序是…，8,5,3,2,1,1)，并要求每行显示6个数。
+        // var arr = [1,1];
+        // for(var i=3;i<41;i++){
+        //     arr[i-1] = arr[i-2] + arr[i-3];
+        // }
+        // arr = arr.reverse();
+        // for(var j = 1;j<=40;j++){
+        //     document.write(arr[j-1]+" ");
+        //     if(j !=0 && j%6 == 0){
+        //         document.write("<br>");
+        //     }
+        // }
+
+        //8.	设计一个函数DayOfYear(d)，它接必一个日期参数d，返回一个该日期是所在年份的第几天，如DayOfYear(2000,2,8)的返回值是39.（提示：①定义一个数组months=new Array（31,28,31,30,31,30,31,31,30,31，30,31）记录每个月少天：②定义一个辅助函数IsLeapYear(y)判定某个年份是否闰年，以确定2月份的天数是28还是29。）
+        function DayOfYear(year,months,day){
+            var num = 0;
+            var months1=new Array(31,28,31,30,31,30,31,31,30,31,30,31);
+            var months2=new Array(31,29,31,30,31,30,31,31,30,31,30,31);
+            if(months == 1){
+                num = day;
+                return num;
+            }else{
+                if((year%4==0)&&(year%100!=0)||year%400==0){
+                    for(var i = 0;i<months-1;i++){
+                        num = num + months2[i];
+                    }
+                    num = num+day;
+                    return num;
+                }else{
+                    for(var i = 0;i<months-1;i++){
+                        num = num + months1[i];
+                    }
+                    num = num+day;
+                    return num;
+                }
+            }
+        }
+        var year = prompt("请输入年份:")*1;
+        var months = prompt("请输入月份:")*1;
+        var day = prompt("请输入日期:")*1;
+        alert(DayOfYear(year,months,day));        
     </script>
 </body>
 </html>
