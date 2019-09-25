@@ -6,7 +6,8 @@ import store from './store';
 Vue.config.productionTip = false;
 
 new Vue({
-  router,
-  store,
-  render: h => h(App),
+  router,//路由
+  store,//vuex
+  render: h => h(App),//将App挂载到app
 }).$mount('#app');
+// 入口文件
