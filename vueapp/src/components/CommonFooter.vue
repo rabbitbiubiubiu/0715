@@ -1,10 +1,14 @@
 <template>
     <div id="footer" :style="{background:$store.state.color}">
-        <router-link v-for="(obj,index) in menu" :key = "index" @click.native="change({title:obj.title,color:obj.color})" :to="obj.path">{{obj.title}}</router-link>
+        <!-- 唯一的标识  -->
+        <!-- 组件 native  -->
+        <!-- $store.commit('change',{}) -->
+        <router-link v-for="(obj,index) in menu" :key="index" @click.native="change({title:obj.title,color:obj.color})" :to="obj.path">{{obj.title}}</router-link>
     </div>
 </template>
 
 <script>
+
     import {mapMutations} from 'vuex';
     export default {
         data(){
@@ -33,7 +37,7 @@
                 ]
             }
         },
-        // 将store中mutation方法映射出来，可直接调用
+        //将store 中mutation中的change方法映射出来
         methods:mapMutations(['change']),
         created(){
             this.menu.forEach((obj,index)=>{

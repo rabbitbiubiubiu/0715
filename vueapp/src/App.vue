@@ -9,7 +9,6 @@
       <common-footer></common-footer>
   </div>
 </template>
-
 <script>
     // 1 commonHeader组件 import 
     // 2 components声明组件
@@ -21,6 +20,8 @@
            CommonFooter
         }
     }
+
+
 </script>
 
 <style lang="scss">
