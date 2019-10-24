@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="browser.min.js"></script>
+    <script type="text/babel">
+        let m,num;
+        //父组件
+        class General extends React.Component{
+            constructor(){
+                super();
+                this.state = {
+                    msg:100,
+                    numa:100,
+                    numb:80,
+                    a:"A",
+                    b:"B",
+                }
+        
+                this.changeMsg = this.changeMsg.bind(this);
+            }
+            
+            changeMsg(val,na,nb){
+                this.setState({
+                    msg:val,
+                    numa:na,
+                    numb:nb,
+                   
+                }) 
+            }
+            
+            render(){
+                return(
+                    <div>
+                        <h1>剩余士兵人数{this.state.msg}</h1>
+                        <Soldiers soldier={this.state.a} msg={this.state.msg} num={this.state.numa} nb={this.state.numb} changeMsg={this.changeMsg}></Soldiers>
+                        <Soldiers soldier={this.state.b} msg={this.state.msg} num={this.state.numb} nb={this.state.numa} changeMsg={this.changeMsg}></Soldiers>
+                    </div>
+                )
+            }
+        }
+        class Soldiers extends React.Component{
+            render(){
+                return(
+                    <div>
+                        <h2>将军{this.props.soldier}有士兵人数{this.props.num}</h2>
+                        <input type="text" ref={(input)=>this.myInput = input}/>
+                        <button onClick={
+                            ()=>{
+                                if(this.props.msg >= this.myInput.value){
+                                    m = (this.props.msg)-(this.myInput.value);
+                                    num = this.props.num + this.myInput.value*1;
+                                    if(this.props.soldier == "A"){
+                                        this.props.changeMsg(m,num,this.props.nb)
+                                    }
+                                    else{
+                                        this.props.changeMsg(m,this.props.nb,num)
+                                    }
+                                    
+                                }else{
+                                    
+                                    this.props.changeMsg(100,100,80);
+                                    alert('人数不足');
+                                }
+                                
+                            }
+                        }>调兵</button>
+                        
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(
+            <General></General>,
+            document.getElementById('root')
+        )
+    </script>
+</body>
+</html>
