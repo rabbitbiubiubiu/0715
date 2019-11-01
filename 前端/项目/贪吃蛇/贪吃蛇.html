@@ -5,22 +5,261 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>贪吃蛇</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            height: 650px;
+            width: 1038px;
+            background: url('./img/bg.jpg');
+            margin: 0 auto;
+            position: relative;
+        }
+        #map-panel{
+            width: 631px;
+            height: 421px;
+            /* background: #f00; */
+            position: absolute;
+            left: 90px;
+            top: 140px;
+        }
+        #map-bg{
+            border-collapse: collapse;
+        }
+        #map-bg td{
+            width: 20px;
+            height: 20px;
+            border: 1px solid #888;
+        }
+        /* 贪吃蛇 */
+        .snake{
+            width: 20px;
+            height: 20px;
+            background: rgb(0,255,255);
+            position: absolute;
+            
+        }
+        /* 食物 */
+        .food{
+            width: 20px;
+            height: 20px;
+            background: rgb(255, 255, 0);
+            position: absolute;
+        }
+        #contrl-panel{
+            width: 196px;
+            height: 500px;
+            /* background: #888; */
+            position: absolute;
+            left: 800px;
+            top: 100px;
+            text-align: center;
+        }
+        #contrl-panel button{
+            width: 178px;
+            height: 52px;
+            /* background: rgb(240, 157, 2); */
+            margin-bottom: 20px;
+            border: 0;
+            font-weight: 700;
+            font-size: 90%;
+        }
+        #game-start{
+            background: url("./img/start-game.png");
+        }
+        #game-setting{
+            background: url("./img/game-setting.png");
+        }
+        #game-quit{
+            background: url("./img/quit-game.png");
+        }
+        #game-help{
+            background: url("./img/help.png");
+        }
+        #speed-panel{
+            width: 196px;
+            height: 204px;
+            /* background: rgb(240, 157, 2); */
+            background: url("./img/speed-panel.png");
+        }
+    </style>
 </head>
 <body>
+    
     <div id="container">
+        <!-- 网格地图 -->
         <div id="map-panel">
-            <table id="panel-bg">
-
+            <table id="map-bg"> 
             </table>
+            
         </div>
+        <!-- 控制面板 -->
         <div id="contrl-panel">
-            <button></button>
-            <button></button>
-            <button></button>
+            <button id="game-start"></button>
+            <button id="game-setting"></button>
+            <button id="game-quit"></button>
+            <button id="game-help"></button>
             <div id="speed-panel">
                 
             </div>
         </div>
     </div>
+    <script>
+        var oMappanel = document.getElementById("map-panel");
+        var oMap = document.getElementById("map-bg");
+        var direction = "right";
+        var timer;
+        var btnStart = document.getElementById("game-start");
+        var oFood;
+
+        // 初始化地图
+        for(var row=0;row<20;row++){
+            var oTr = document.createElement("tr");
+            for(var col=0;col<30;col++){
+                var oTd = document.createElement("td");
+                oTr.appendChild(oTd);
+            }
+            oMap.appendChild(oTr);
+        }
+
+        // 初始化蛇
+        var snakeBody = [];
+        
+        for(var i=8;i>=0;i--){
+            var oDiv = document.createElement("div");
+            oDiv.className = "snake";
+            oDiv.style.left = i*20+(i+1) + "px";
+            oDiv.style.top = 64+"px";
+            oMappanel.appendChild(oDiv);
+            // 记录蛇的位置坐标
+            oDiv.pos = {
+                left:i*20+(i+1),
+                top:64
+            };
+            snakeBody.push(oDiv);
+            
+        }
+
+        // 初始化食物
+        function productFood(){
+            do{
+                var bFlag = true;  //标志食物是否生成在蛇的位置
+                oFood = document.createElement("div");
+                oFood.className = "food";
+                oMappanel.appendChild(oFood);
+                // parseInt取整数部分
+                var iLeft = parseInt(Math.random()*30)*21+1;
+                var iTop = parseInt(Math.random()*20)*21+1;
+
+                for(var i=0;i<snakeBody.length;i++){
+                    if(iLeft == snakeBody[i].offsetLeft && iTop == snakeBody[i].offsetTop){
+                        bFlag = false;
+                    }
+                }
+                oFood.style.left = iLeft+"px";
+                oFood.style.top = iTop+"px";
+                oFood.pos = {
+                    left:iLeft,
+                    top:iTop
+                }
+            }while(!bFlag)
+        }
+
+        productFood();
+
+        btnStart.onclick = function(){
+            if(!timer){
+                timer = setInterval(function(){
+                    snackMove();
+                }, 300);
+            }
+        };
+
+        //蛇移动
+        function snackMove(){
+            //取出蛇头
+            var snakeHead = snakeBody[0];
+            
+            // 处理蛇头
+            if(direction == "right"){
+                snakeHead.style.left = snakeHead.offsetLeft + 21 +"px";
+            }
+            if(direction == "up"){
+                snakeHead.style.top = snakeHead.offsetTop - 21 +"px";
+            }
+            if(direction == "left"){
+                snakeHead.style.left = snakeHead.offsetLeft - 21 + "px";
+            }
+            if(direction == "down"){
+                snakeHead.style.top = snakeHead.offsetTop + 21 + "px";
+            }
+
+            if(snakeHead.offsetLeft == oFood.offsetLeft && snakeHead.offsetTop == oFood.offsetTop){
+                oFood.className = "snake";
+                oFood.style.left = snakeHead.pos.left + "px";
+                oFood.style.top = snakeHead.pos.top + "px";
+                snakeBody.splice(1,0,oFood);
+                productFood();
+            }else{
+            //处理蛇身
+                for(var i = 1;i<snakeBody.length;i++){
+                    snakeBody[i].style.left = snakeBody[i-1].pos.left + "px";
+                    snakeBody[i].style.top = snakeBody[i-1].pos.top + "px";
+                }
+            }
+            //记录蛇当前的位置
+            // offsetLeft,offsetTop获取当前位置坐标数值，无单位
+            for(var i = 0;i<snakeBody.length;i++){
+                snakeBody[i].pos.left = snakeBody[i].offsetLeft;
+                snakeBody[i].pos.top = snakeBody[i].offsetTop;
+            }
+
+            if(snakeHead.offsetLeft == -20 || snakeHead.offsetLeft == 631 || snakeHead.offsetTop == -20 || snakeHead.offsetTop == 421){
+                clearInterval(timer);
+                alert("game over！！！");
+                
+            }
+
+            for(var i = 4;i<snakeBody.length;i++){
+                if(snakeHead.offsetLeft == snakeBody[i].offsetLeft && snakeHead.offsetTop == snakeBody[i].offsetTop){
+                    clearInterval(timer);
+                    alert("吃到了自己！！！");
+                    
+                }
+            }
+            
+        }
+
+        document.onkeydown = function(e){
+            // 键盘按键事件处理
+            e = e || window.event;
+            var key = e.witch || e.keyCode;
+            // console.log(key);
+            //蛇向左
+            if(key == 37){
+                if(direction!="right"){
+                    direction = "left";
+                }
+                // 蛇向上
+            }else if(key == 38 ){
+                if(direction != "down"){
+                    direction = "up";
+                } 
+            // 蛇向右
+            }else if(key == 39){
+                if(direction != "left"){
+                    direction = "right";
+                }
+                // 蛇向下
+            }else if(key == 40){
+                if(direction != "up"){
+                    direction = "down";
+                }
+            }
+            snackMove();
+        }
+    </script>
 </body>
 </html>

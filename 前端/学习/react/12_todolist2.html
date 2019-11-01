@@ -9,6 +9,12 @@
         .red{
             background: #f00;
         }
+        .show{
+            display: block;
+        }
+        .hide{
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -28,30 +34,79 @@
                 list:[
                     {
                         id:1,
-                        name:'吃饭'
+                        name:'吃饭',
+                        active:false,//是否被选中
+                        show:true,//是否显示
                     },
                     {
                         id:2,
-                        name:'睡觉'
-                    }
-                ]
+                        name:'睡觉',
+                        active:false,
+                        show:true
+                    },
+                    
+                ],
+                idx:3
             }
-            this.addList = this.addList.bind(this)
+            this.add = this.add.bind(this);
+            this.change = this.change.bind(this);
+            this.delete = this.delete.bind(this);
+            this.search = this.search.bind(this)
         }
-        addList(val){
-            let arr=this.state.list;
-            arr.push(val);
+        add(val){
+            let arr=[...this.state.list];
+            arr.push({
+                name:val,
+                active:false,
+                id:this.idx++,
+                show:true
+            })
             this.setState({
                 list:arr
             })
         }
+
+        change(id){
+            let arr = [...this.state.list];
+            arr.forEach((obj,index)=>{
+                if(obj.id == id){
+                    obj.active = !obj.active
+                }
+            })
+            this.setState({
+                list:arr
+            })
+        }
+
+        delete(index){
+            let arr = [...this.state.list];
+            arr.splice(index,1);
+            this.setState({
+                list:arr
+            })
+        }
+        search(val){
+            let list = [...this.state.list];
+            list.forEach((obj)=>{
+                if(obj.name.includes(val)){
+                    obj.show = true;
+                }else{
+                    obj.show = false;
+                }
+            })
+            
+            this.setState({
+                list
+            })
+        }
+
         render(){
             return(
                 <div>
                     <h1>todolist</h1>
-                    <SearchList></SearchList>
-                    <AddList addList={this.state.addList}></AddList>
-                    <ShowList></ShowList>
+                    <SearchList search={this.search}></SearchList>
+                    <AddList add={this.add}></AddList>
+                    <ShowList list = {this.state.list} change={this.change} delete={this.delete}></ShowList>
                 </div>
             )
         }
@@ -61,8 +116,13 @@
         render(){
             return(
                 <div>
-                    <p>搜索
-                        <input type="text"/>
+                    <p>搜索:
+                        <input type="text" ref = {(input) => this.myInput = input}/>
+                        <button onClick={
+                            ()=>{
+                                this.props.search(this.myInput.value)
+                            }
+                        }>搜索</button>
                     </p>
                 </div>
             )
@@ -72,10 +132,10 @@
         render(){
             return(
                 <div>
-                    <p>添加
-                        <input type="text" ref={(input)=>this.myInput=input}/>
+                    <p>添加:
+                        <input type="text" ref={(input)=>this.myInput = input}/>
                         <button onClick = {()=>{
-                            this.props.addList(this.input.value)
+                            this.props.add(this.myInput.value);
                         }}>add</button>
                     </p>
                 </div>
@@ -88,7 +148,29 @@
                 <div>
                     <ul>
                         {
-                            
+                            this.props.list.map((obj,index)=>{
+                                let a = obj.active?"red":'';
+                                let b = obj.show?"show":"hide";
+                                let cName = a +" "+ b;
+                                return (
+                                    <li className={cName} key={obj.id}
+                                        onClick={
+                                            ()=>{
+                                                this.props.change(obj.id);
+                                            }
+                                        }
+                                    >
+                                    {obj.name}
+                                    <button onClick = {
+                                        (e)=>{
+                                            this.props.delete(index);
+                                            //阻止事件冒泡
+                                            e.stopPropagation();
+                                        }
+                                    }>删除</button>
+                                    </li>
+                                )
+                            })
                         }
                     </ul>
                 </div>
