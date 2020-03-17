@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>倒计时</title>
+</head>
+<body>
+    <span id="clock"></span>
+    <script>
+        var s = document.getElementById("clock");
+        function DJS(stroptime){
+            var newtime = new Date();
+            var stroptime = new Date(stroptime);
+            var res = stroptime*1 - newtime*1;
+            var days = Math.floor(res/(24*60*60*1000));
+            var hoursl = Math.floor(res%(24*60*60*1000));
+            var hours = Math.floor(hoursl/(60*60*1000));
+            var minsl = Math.floor(hoursl%(60*60*1000));
+            var mins = Math.floor(minsl/(60*1000));
+            var secsl = Math.floor(minsl%(60*1000));
+            var secs = Math.floor(secsl/1000);
+            days = days<9?"0"+days:days;
+            hours = hours<9?"0"+hours:hours;
+            mins = mins<9?"0"+mins:mins;
+            secs = secs<9?"0"+secs:secs;
+            var resl = days +"天:"+hours+"时:"+mins+"分:"+secs+"秒";
+            resl = res>0?resl:"时间有误";
+            return resl;
+        }
+        setInterval(function(){
+            s.innerHTML = DJS("2020,3,14");
+        },1000)
+    </script>
+</body>
+</html>
